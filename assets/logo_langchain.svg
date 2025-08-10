@@ -1,0 +1,10 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="white"/>
+  <circle cx="100" cy="100" r="55" fill="#F59E0B"/>
+  <text x="100" y="115" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">LangChain</text>
+  <circle cx="80" cy="80" r="8" fill="white"/>
+  <circle cx="100" cy="80" r="8" fill="white"/>
+  <circle cx="120" cy="80" r="8" fill="white"/>
+  <path d="M 88 80 L 92 80 M 108 80 L 112 80" stroke="white" stroke-width="3"/>
+  <path d="M 80 88 L 80 92 M 100 88 L 100 92 M 120 88 L 120 92" stroke="white" stroke-width="3"/>
+</svg>

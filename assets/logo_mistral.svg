@@ -1,0 +1,7 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="white"/>
+  <circle cx="100" cy="100" r="55" fill="#7C3AED"/>
+  <text x="100" y="115" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Mistral AI</text>
+  <polygon points="100,70 110,85 100,100 90,85" fill="white"/>
+  <circle cx="100" cy="85" r="5" fill="#7C3AED"/>
+</svg>

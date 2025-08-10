@@ -1,0 +1,8 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="white"/>
+  <circle cx="100" cy="100" r="55" fill="#3B82F6"/>
+  <text x="100" y="115" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">CoreWeave</text>
+  <ellipse cx="80" cy="75" rx="15" ry="8" fill="white"/>
+  <ellipse cx="120" cy="75" rx="15" ry="8" fill="white"/>
+  <ellipse cx="100" cy="85" rx="20" ry="10" fill="white"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="300" height="200" fill="#F3F4F6"/>
+  <rect x="20" y="20" width="260" height="160" rx="10" fill="white" stroke="#E5E7EB" stroke-width="2"/>
+  <text x="150" y="50" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1F2937">Stability Creative</text>
+  <text x="150" y="80" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Image & Video Gen</text>
+  <text x="150" y="100" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#6B7280">Creative Industries</text>
+  <circle cx="150" cy="130" r="20" fill="#EC4899"/>
+  <text x="150" y="137" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Art</text>
+  <text x="150" y="170" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="#9CA3AF">Marketing Creative</text>
+</svg>

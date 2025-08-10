@@ -1,0 +1,218 @@
+name: cofound_app
+description: "coFuond"
+version: 0.0.5+105
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+
+
+environment:
+  sdk: ^3.7.2
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  logger: ^2.4.0
+  cupertino_icons: ^1.0.8
+  font_awesome_flutter: ^10.8.0
+  postgres: ^3.5.6
+  flutter_svg: ^1.0.3 
+  firebase_core: ^3.12.1
+  firebase_auth: ^5.5.1
+  fluttertoast: ^8.2.12
+  flutter_time_picker_spinner: ^2.0.0
+  provider: ^6.1.2
+  intl: any
+  sqflite: ^2.4.1
+  dio: ^5.0.0
+  http: ^0.13.3
+  connectivity_plus: ^5.0.2
+  uuid: ^3.0.6
+  flutter_secure_storage: ^9.2.4
+  carousel_slider: ^4.2.1
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.9.4
+  permission_handler: ^11.0.0
+  device_info_plus: ^9.0.0
+  mobile_scanner: ^6.0.7
+  qr_flutter: ^4.1.0
+  # image_gallery_saver: ^2.0.3  # Temporarily disabled due to Android compatibility issues
+  image_picker: ^0.8.6
+  path_provider: ^2.0.11
+  path: ^1.8.3
+  file_picker: ^9.0.0
+  open_file: ^3.2.1
+  fl_chart: ^0.68.0
+  pdf: ^3.10.8
+  printing: ^5.13.2
+  syncfusion_flutter_charts: ^28.2.11
+  health: ^12.1.0
+  url_launcher: ^6.3.1
+  shared_preferences: ^2.2.3
+  encrypt: ^5.0.3
+  cached_network_image: ^3.3.1
+  flutter_launcher_icons: ^0.14.4
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^5.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/icon.png
+    # Логотипы компаний
+    - assets/logo_openai.svg
+    - assets/logo_anthropic.svg
+    - assets/logo_xai.svg
+    - assets/logo_perplexity.svg
+    - assets/logo_replit.svg
+    - assets/logo_coreweave.svg
+    - assets/logo_cohere.svg
+    - assets/logo_glean.svg
+    - assets/logo_elevenlabs.svg
+    - assets/logo_writer.svg
+    - assets/logo_mistral.svg
+    - assets/logo_stability.svg
+    - assets/logo_huggingface.svg
+    - assets/logo_databricks.svg
+    - assets/logo_snowflake.svg
+    - assets/logo_nvidia.svg
+    - assets/logo_adept.svg
+    - assets/logo_character.svg
+    - assets/logo_inflection.svg
+    - assets/logo_groq.svg
+    - assets/logo_together.svg
+    - assets/logo_langchain.svg
+    - assets/logo_llamaindex.svg
+    - assets/logo_modal.svg
+    - assets/logo_runpod.svg
+    - assets/logo_n8n.svg
+    - assets/logo_hazy.svg
+    - assets/logo_pinecone.svg
+    - assets/logo_weaviate.svg
+    - assets/logo_qdrant.svg
+    # Новости/события
+    - assets/news_openai_funding.svg
+    - assets/news_anthropic_claude.svg
+    - assets/news_xai_grok.svg
+    - assets/news_perplexity_ipo.svg
+    - assets/news_replit_ai_coding.svg
+    - assets/news_coreweave_growth.svg
+    - assets/news_cohere_enterprise.svg
+    - assets/news_glean_corporate.svg
+    - assets/news_elevenlabs_voice.svg
+    - assets/news_writer_compliance.svg
+    - assets/news_mistral_european.svg
+    - assets/news_stability_creative.svg
+    - assets/news_huggingface_ecosystem.svg
+    - assets/news_databricks_lakehouse.svg
+    - assets/news_snowflake_ai_features.svg
+    - assets/news_nvidia_gpu.svg
+    - assets/news_adept_agents.svg
+    - assets/news_character_assistants.svg
+    - assets/news_inflection_productivity.svg
+    - assets/news_groq_lpu.svg
+    - assets/news_together_infrastructure.svg
+    - assets/news_langchain_modules.svg
+    - assets/news_llamaindex_rag.svg
+    - assets/news_modal_serverless.svg
+    - assets/news_runpod_gpu.svg
+    - assets/news_n8n_automation.svg
+    - assets/news_hazy_synthetic.svg
+    - assets/news_pinecone_vector.svg
+    - assets/news_weaviate_modular.svg
+    - assets/news_qdrant_performance.svg
+    # Аватары пользователей
+    - assets/avatar_alexey.svg
+    - assets/avatar_maria.svg
+    - assets/avatar_ivan.svg
+    - assets/avatar_olga.svg
+    - assets/avatar_dmitry.svg
+    - assets/avatar_anna.svg
+    - assets/avatar_sergey.svg
+    - assets/avatar_elena.svg
+    - assets/avatar_pavel.svg
+    - assets/avatar_natalia.svg
+    - assets/avatar_kirill.svg
+    - assets/avatar_victoria.svg
+    - assets/avatar_roman.svg
+    - assets/avatar_yulia.svg
+    - assets/avatar_nikita.svg
+    - assets/avatar_tatyana.svg
+    - assets/avatar_mikhail.svg
+    - assets/avatar_svetlana.svg
+    - assets/avatar_egor.svg
+    - assets/avatar_alina.svg
+  #   - images/a_dot_ham.jpeg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/to/resolution-aware-images
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/to/asset-from-package
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/to/font-from-package
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon.png"
+  remove_alpha_ios: true
+  # Полностью отключаем adaptive icons
+  adaptive_icon_background: null
+  adaptive_icon_foreground: null

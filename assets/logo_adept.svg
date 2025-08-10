@@ -1,0 +1,12 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="white"/>
+  <circle cx="100" cy="100" r="55" fill="#06B6D4"/>
+  <text x="100" y="115" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">Adept AI</text>
+  <circle cx="100" cy="75" r="15" fill="white"/>
+  <circle cx="100" cy="75" r="8" fill="#06B6D4"/>
+  <path d="M 85 85 L 115 85 M 85 95 L 115 95" stroke="white" stroke-width="2"/>
+  <circle cx="90" cy="85" r="2" fill="white"/>
+  <circle cx="110" cy="85" r="2" fill="white"/>
+  <circle cx="90" cy="95" r="2" fill="white"/>
+  <circle cx="110" cy="95" r="2" fill="white"/>
+</svg>
