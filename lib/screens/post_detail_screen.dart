@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '/models/models.dart';
+import '/services/services.dart';
+import '/repositories/repositories.dart';
 import '/app_styles.dart';
 import '/utils/image_utils.dart';
 
@@ -20,43 +22,170 @@ class PostDetailScreen extends StatefulWidget {
 }
 
 class _PostDetailScreenState extends State<PostDetailScreen> {
+  final PostRepository _postRepository = PostRepository();
+  final UserRepository _userRepository = UserRepository();
+  
   bool _isLiked = false;
   int _likesCount = 0;
   final TextEditingController _commentController = TextEditingController();
   final List<Comment> _comments = [];
+  Map<int, User> _commentAuthors = {};
+  bool _isLoadingComments = true;
+  bool _isSubmittingComment = false;
 
   @override
   void initState() {
     super.initState();
     _likesCount = widget.post.likesCount;
-    // TODO: Загрузить комментарии и статус лайка
+    _loadComments();
+    _checkLikeStatus();
   }
 
-  void _handleLike() {
-    setState(() {
-      _isLiked = !_isLiked;
-      _likesCount += _isLiked ? 1 : -1;
-    });
-    // TODO: Отправить лайк на сервер
+  Future<void> _loadComments() async {
+    try {
+      if (mounted) {
+        setState(() {
+          _isLoadingComments = true;
+        });
+      }
+
+      final comments = await _postRepository.getCommentsForPost(widget.post.id);
+      
+      // Загружаем данные авторов комментариев
+      for (final comment in comments) {
+        try {
+          final author = await _userRepository.getUser(comment.userId);
+          if (author != null && mounted) {
+            _commentAuthors[comment.userId] = author;
+          }
+        } catch (e) {
+          print('Ошибка загрузки автора комментария: $e');
+        }
+      }
+
+      if (mounted) {
+        setState(() {
+          _comments.clear();
+          _comments.addAll(comments);
+          _isLoadingComments = false;
+        });
+      }
+    } catch (e) {
+      print('Ошибка загрузки комментариев: $e');
+      if (mounted) {
+        setState(() {
+          _isLoadingComments = false;
+        });
+      }
+    }
   }
 
-  void _handleComment() {
+  Future<void> _checkLikeStatus() async {
+    try {
+      final userId = await SessionService.getCurrentUserId();
+      if (userId != null) {
+        final isLiked = await _postRepository.isPostLikedByUser(widget.post.id, userId);
+        if (mounted) {
+          setState(() {
+            _isLiked = isLiked;
+          });
+        }
+      }
+    } catch (e) {
+      print('Ошибка проверки статуса лайка: $e');
+    }
+  }
+
+  Future<void> _handleLike() async {
+    try {
+      final userId = await SessionService.getCurrentUserId();
+      if (userId == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Необходимо войти в систему')),
+        );
+        return;
+      }
+
+      bool success;
+      if (_isLiked) {
+        success = await _postRepository.unlikePost(widget.post.id, userId);
+      } else {
+        success = await _postRepository.likePost(widget.post.id, userId);
+      }
+
+      if (success && mounted) {
+        setState(() {
+          _isLiked = !_isLiked;
+          _likesCount += _isLiked ? 1 : -1;
+        });
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Ошибка: $e')),
+      );
+    }
+  }
+
+  Future<void> _handleComment() async {
     if (_commentController.text.trim().isEmpty) return;
 
-    final newComment = Comment(
-      id: DateTime.now().millisecondsSinceEpoch,
-      postId: widget.post.id,
-      userId: 1, // TODO: Получить ID текущего пользователя
-      content: _commentController.text.trim(),
-      createdAt: DateTime.now(),
-    );
+    try {
+      final userId = await SessionService.getCurrentUserId();
+      if (userId == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Необходимо войти в систему')),
+        );
+        return;
+      }
 
-    setState(() {
-      _comments.insert(0, newComment);
-    });
+      if (mounted) {
+        setState(() {
+          _isSubmittingComment = true;
+        });
+      }
 
-    _commentController.clear();
-    // TODO: Отправить комментарий на сервер
+      final comment = await _postRepository.createComment(
+        postId: widget.post.id,
+        userId: userId,
+        content: _commentController.text.trim(),
+      );
+
+      if (comment != null && mounted) {
+        // Загружаем данные автора для нового комментария
+        try {
+          final author = await _userRepository.getUser(userId);
+          if (author != null) {
+            _commentAuthors[userId] = author;
+          }
+        } catch (e) {
+          print('Ошибка загрузки автора: $e');
+        }
+
+        setState(() {
+          _comments.insert(0, comment);
+          _commentController.clear();
+          _isSubmittingComment = false;
+        });
+      } else {
+        if (mounted) {
+          setState(() {
+            _isSubmittingComment = false;
+          });
+        }
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Ошибка создания комментария')),
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        setState(() {
+          _isSubmittingComment = false;
+        });
+      }
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Ошибка: $e')),
+      );
+    }
   }
 
   @override
@@ -211,8 +340,9 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                 Expanded(
                   child: TextField(
                     controller: _commentController,
+                    enabled: !_isSubmittingComment,
                     decoration: InputDecoration(
-                      hintText: 'Написать комментарий...',
+                      hintText: _isSubmittingComment ? 'Отправка...' : 'Написать комментарий...',
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25),
                         borderSide: BorderSide.none,
@@ -228,23 +358,51 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                 ),
                 const SizedBox(width: 8),
                 IconButton(
-                  onPressed: _handleComment,
-                  icon: Icon(Icons.send, color: AppStyles.secondaryColor),
+                  onPressed: _isSubmittingComment ? null : _handleComment,
+                  icon: _isSubmittingComment 
+                      ? SizedBox(
+                          width: 20,
+                          height: 20,
+                          child: CircularProgressIndicator(
+                            strokeWidth: 2,
+                            valueColor: AlwaysStoppedAnimation<Color>(AppStyles.secondaryColor),
+                          ),
+                        )
+                      : Icon(Icons.send, color: AppStyles.secondaryColor),
                 ),
               ],
             ),
             const SizedBox(height: 16),
             
             // Список комментариев
-            if (_comments.isNotEmpty) ...[
+            if (_isLoadingComments) ...[
+              const Center(
+                child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: CircularProgressIndicator(),
+                ),
+              ),
+            ] else if (_comments.isNotEmpty) ...[
               Text(
-                'Комментарии',
+                'Комментарии (${_comments.length})',
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
               const SizedBox(height: 12),
               ..._comments.map((comment) => _buildCommentCard(comment)),
+            ] else ...[
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(
+                    'Пока нет комментариев',
+                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      color: AppStyles.secondaryGrey,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ],
         ),
@@ -253,6 +411,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
   }
 
   Widget _buildCommentCard(Comment comment) {
+    final author = _commentAuthors[comment.userId];
     return Card(
       margin: const EdgeInsets.only(bottom: 8),
       child: Padding(
@@ -263,7 +422,17 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
             CircleAvatar(
               radius: 16,
               backgroundColor: AppStyles.primaryColor.withOpacity(0.1),
-              child: Icon(Icons.person, color: AppStyles.primaryColor, size: 16),
+              child: author?.avatarUrl != null
+                  ? ClipOval(
+                      child: ImageUtils.buildImage(
+                        imageUrl: author!.avatarUrl!,
+                        width: 32,
+                        height: 32,
+                        fit: BoxFit.cover,
+                        errorWidget: Icon(Icons.person, color: AppStyles.primaryColor, size: 16),
+                      ),
+                    )
+                  : Icon(Icons.person, color: AppStyles.primaryColor, size: 16),
             ),
             const SizedBox(width: 8),
             Expanded(
@@ -273,7 +442,7 @@ class _PostDetailScreenState extends State<PostDetailScreen> {
                   Row(
                     children: [
                       Text(
-                        'Пользователь', // TODO: Получить имя пользователя
+                        author?.name ?? 'Пользователь',
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
