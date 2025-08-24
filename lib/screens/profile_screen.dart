@@ -12,6 +12,7 @@ import '/services/user_service.dart';
 import '/services/business_card_service.dart';
 import '/services/session_service.dart';
 import '/services/company_service.dart';
+import '/services/avatar_service.dart';
 import '/models/company.dart';
 import '/screens/company_detail_screen.dart';
 import '/app_styles.dart';
@@ -28,6 +29,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   BusinessCard? _userCard;
   bool _isLoading = true;
   String? _error;
+  String? _localAvatarPath;
 
   // Избранные визитки пользователя (с сервера)
   List<BusinessCard> _savedCards = [];
@@ -74,11 +76,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
       // Тянем избранные компании
       final favCompanies = await CompanyService().getFavoriteCompanies(userId);
 
+      // Загружаем локальный аватар
+      final localAvatarPath = await AvatarService.getLocalAvatarPath();
+
       setState(() {
         _currentUser = user;
         _userCard = card;
         _savedCards = favorites;
         _favoriteCompanies = favCompanies;
+        _localAvatarPath = localAvatarPath;
         _isLoading = false;
       });
     } catch (e) {
@@ -360,14 +366,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   children: [
                     Row(
                       children: [
-                        Container(
-                          width: 60,
-                          height: 60,
-                          decoration: BoxDecoration(
-                            color: AppStyles.primaryColor.withOpacity(0.1),
-                            shape: BoxShape.circle,
-                          ),
-                          child: Icon(Icons.person, color: AppStyles.primaryColor, size: 30),
+                        AvatarService.buildAvatarWidget(
+                          radius: 30,
+                          localPath: _localAvatarPath,
+                          networkUrl: _currentUser?.avatarUrl,
+                          backgroundColor: AppStyles.primaryColor.withOpacity(0.1),
+                          placeholder: Icon(Icons.person, color: AppStyles.primaryColor, size: 30),
                         ),
                         const SizedBox(width: 12),
                         Column(

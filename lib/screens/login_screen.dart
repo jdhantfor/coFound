@@ -89,6 +89,7 @@ class _LoginScreenState extends State<LoginScreen>
         final userId = data['user_id'];
         if (userId != null) {
           await SessionService.setCurrentUserId(userId);
+          await SessionService.setUserEmail(_loginController.text.trim());
           // Тянем профиль, чтобы локально иметь свежие данные
           await UserService().getUser(userId);
         }

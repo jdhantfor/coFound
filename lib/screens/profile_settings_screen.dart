@@ -1,7 +1,11 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import '../models/user.dart';
 import '../app_styles.dart';
 import '../utils/image_utils.dart';
+import '../services/session_service.dart';
+import '../services/avatar_service.dart';
+import '../screens/login_screen.dart';
 
 class ProfileSettingsScreen extends StatefulWidget {
   final User user;
@@ -22,6 +26,8 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
   bool _showPhone = true;
   String _selectedLanguage = 'Русский';
   String _selectedTheme = 'Системная';
+  String? _localAvatarPath;
+  bool _isLoadingAvatar = false;
 
   // Тестовые данные статистики
   final Map<String, int> _activityStats = {
@@ -54,6 +60,19 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
       'icon': Icons.qr_code,
     },
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    _loadLocalAvatar();
+  }
+
+  Future<void> _loadLocalAvatar() async {
+    final localPath = await AvatarService.getLocalAvatarPath();
+    setState(() {
+      _localAvatarPath = localPath;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,28 +113,35 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
           children: [
             Row(
               children: [
-                CircleAvatar(
-                  radius: 40,
-                  backgroundColor: AppStyles.primaryColor.withOpacity(0.1),
-                  child: widget.user.avatarUrl != null
-                      ? ClipOval(
-                          child: ImageUtils.buildImage(
-                            imageUrl: widget.user.avatarUrl!,
-                            width: 80,
-                            height: 80,
-                            fit: BoxFit.cover,
-                            errorWidget: Icon(
-                              Icons.person,
-                              size: 40,
-                              color: AppStyles.primaryColor,
+                Stack(
+                  children: [
+                    AvatarService.buildAvatarWidget(
+                      radius: 40,
+                      localPath: _localAvatarPath,
+                      networkUrl: widget.user.avatarUrl,
+                      backgroundColor: AppStyles.primaryColor.withOpacity(0.1),
+                      placeholder: Icon(
+                        Icons.person,
+                        size: 40,
+                        color: AppStyles.primaryColor,
+                      ),
+                    ),
+                    if (_isLoadingAvatar)
+                      Positioned.fill(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.3),
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                              strokeWidth: 2,
                             ),
                           ),
-                        )
-                      : Icon(
-                          Icons.person,
-                          size: 40,
-                          color: AppStyles.primaryColor,
                         ),
+                      ),
+                  ],
                 ),
                 const SizedBox(width: 16),
                 Expanded(
@@ -356,6 +382,17 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
                 child: const Text('Удалить аккаунт'),
               ),
             ),
+            const SizedBox(height: 16),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton(
+                onPressed: _logout,
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.red,
+                ),
+                child: const Text('Выйти из аккаунта'),
+              ),
+            ),
           ],
         ),
       ),
@@ -389,15 +426,14 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            const Text('Выберите источник', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 16),
             ListTile(
               leading: const Icon(Icons.camera_alt),
               title: const Text('Сделать фото'),
               onTap: () {
                 Navigator.pop(context);
-                // TODO: Implement camera functionality
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Функция камеры будет добавлена')),
-                );
+                _takePhoto();
               },
             ),
             ListTile(
@@ -405,16 +441,94 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
               title: const Text('Выбрать из галереи'),
               onTap: () {
                 Navigator.pop(context);
-                // TODO: Implement gallery picker
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Функция галереи будет добавлена')),
-                );
+                _pickFromGallery();
               },
             ),
           ],
         ),
       ),
     );
+  }
+
+  Future<void> _takePhoto() async {
+    setState(() {
+      _isLoadingAvatar = true;
+    });
+
+    try {
+      final imageFile = await AvatarService.takePhotoWithCamera();
+      if (imageFile != null) {
+        await _processSelectedImage(imageFile);
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Ошибка при съемке фото: $e'),
+          backgroundColor: AppStyles.errorColor,
+        ),
+      );
+    } finally {
+      setState(() {
+        _isLoadingAvatar = false;
+      });
+    }
+  }
+
+  Future<void> _pickFromGallery() async {
+    setState(() {
+      _isLoadingAvatar = true;
+    });
+
+    try {
+      final imageFile = await AvatarService.pickImageFromGallery();
+      if (imageFile != null) {
+        await _processSelectedImage(imageFile);
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Ошибка при выборе изображения: $e'),
+          backgroundColor: AppStyles.errorColor,
+        ),
+      );
+    } finally {
+      setState(() {
+        _isLoadingAvatar = false;
+      });
+    }
+  }
+
+  Future<void> _processSelectedImage(File imageFile) async {
+    try {
+      // Сохраняем локально
+      final localPath = await AvatarService.saveAvatarLocally(imageFile);
+      if (localPath != null) {
+        setState(() {
+          _localAvatarPath = localPath;
+        });
+
+        // Загружаем на сервер
+        final userId = await SessionService.getCurrentUserId();
+        if (userId != null) {
+          final avatarUrl = await AvatarService.uploadAvatarToServer(imageFile, userId);
+          if (avatarUrl != null) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Аватар успешно обновлен'),
+                backgroundColor: AppStyles.successColor,
+              ),
+            );
+          }
+        }
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Ошибка при обработке изображения: $e'),
+          backgroundColor: AppStyles.errorColor,
+        ),
+      );
+    }
   }
 
   void _removeAvatar() {
@@ -429,18 +543,37 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
             child: const Text('Отмена'),
           ),
           TextButton(
-            onPressed: () {
+            onPressed: () async {
               Navigator.pop(context);
-              // TODO: Implement avatar removal
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Фото профиля удалено')),
-              );
+              await _deleteAvatar();
             },
             child: const Text('Удалить', style: TextStyle(color: Colors.red)),
           ),
         ],
       ),
     );
+  }
+
+  Future<void> _deleteAvatar() async {
+    try {
+      await AvatarService.deleteAvatar();
+      setState(() {
+        _localAvatarPath = null;
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Фото профиля удалено'),
+          backgroundColor: AppStyles.successColor,
+        ),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Ошибка при удалении фото: $e'),
+          backgroundColor: AppStyles.errorColor,
+        ),
+      );
+    }
   }
 
   void _viewFullHistory() {
@@ -533,5 +666,15 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
         ],
       ),
     );
+  }
+
+  void _logout() async {
+    await SessionService.logout();
+    if (mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    }
   }
 } 
