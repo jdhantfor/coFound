@@ -164,7 +164,7 @@ class _CompaniesScreenState extends State<CompaniesScreen> {
       ),
     );
 
-    if (result != null && mounted) {
+    if (mounted) {
       await _applyFilters(result);
     }
   }

@@ -15,6 +15,7 @@ class FilterScreen extends StatefulWidget {
 
 class _FilterScreenState extends State<FilterScreen> {
   final _formKey = GlobalKey<FormState>();
+  final _searchController = TextEditingController();
   
   // Фильтры
   String? _selectedIndustry;
@@ -63,6 +64,11 @@ class _FilterScreenState extends State<FilterScreen> {
       _selectedLocation = widget.currentFilters!['location'];
       _searchQuery = widget.currentFilters!['search'];
       _employeeCountFilter = widget.currentFilters!['employeeCount'];
+      
+      // Устанавливаем значение в контроллер поиска
+      if (_searchQuery != null) {
+        _searchController.text = _searchQuery!;
+      }
     }
   }
 
@@ -85,10 +91,12 @@ class _FilterScreenState extends State<FilterScreen> {
       _selectedLocation = null;
       _searchQuery = null;
       _employeeCountFilter = null;
+      _searchController.clear();
     });
   }
 
   void _resetFilters() {
+    _clearFilters();
     Navigator.pop(context, null);
   }
 
@@ -102,7 +110,10 @@ class _FilterScreenState extends State<FilterScreen> {
         elevation: 0,
         actions: [
           TextButton(
-            onPressed: _clearFilters,
+            onPressed: () {
+              _clearFilters();
+              Navigator.pop(context, null);
+            },
             child: const Text('Очистить'),
           ),
         ],
@@ -146,7 +157,7 @@ class _FilterScreenState extends State<FilterScreen> {
             ),
             const SizedBox(height: 12),
             TextFormField(
-              initialValue: _searchQuery,
+              controller: _searchController,
               decoration: const InputDecoration(
                 hintText: 'Название компании, описание...',
                 prefixIcon: Icon(Icons.search),
@@ -337,5 +348,11 @@ class _FilterScreenState extends State<FilterScreen> {
         ),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 }
