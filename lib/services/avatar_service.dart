@@ -187,14 +187,12 @@ class AvatarService {
         radius: radius,
         backgroundColor: backgroundColor ?? Colors.grey[300],
         backgroundImage: FileImage(File(localPath)),
-        child: placeholder,
       );
     } else if (networkUrl != null) {
       return CircleAvatar(
         radius: radius,
         backgroundColor: backgroundColor ?? Colors.grey[300],
         backgroundImage: NetworkImage(networkUrl),
-        child: placeholder,
       );
     } else {
       return CircleAvatar(

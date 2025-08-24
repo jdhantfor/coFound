@@ -360,18 +360,18 @@ class _ProfileSettingsScreenState extends State<ProfileSettingsScreen> {
               onTap: _selectTheme,
             ),
             const SizedBox(height: 16),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: _exportData,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppStyles.primaryColor,
-                  foregroundColor: Colors.white,
-                ),
-                child: const Text('Экспорт данных'),
-              ),
-            ),
-            const SizedBox(height: 8),
+            // SizedBox(
+            //   width: double.infinity,
+            //   child: ElevatedButton(
+            //     onPressed: _exportData,
+            //     style: ElevatedButton.styleFrom(
+            //       backgroundColor: AppStyles.primaryColor,
+            //       foregroundColor: Colors.white,
+            //     ),
+            //     child: const Text('Экспорт данных'),
+            //   ),
+            // ),
+            // const SizedBox(height: 8),
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
