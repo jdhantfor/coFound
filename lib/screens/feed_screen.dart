@@ -37,18 +37,24 @@ class _FeedScreenState extends State<FeedScreen> {
   Future<void> _loadPosts() async {
     try {
       final posts = await _postRepository.getPosts();
-      setState(() {
-        _posts = posts;
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _posts = posts;
+          _isLoading = false;
+        });
+      }
       
       // Загружаем данные авторов и компаний
       for (final post in posts) {
+        if (!mounted) break; // Прерываем цикл если виджет удален
+        
         if (post.userId != null) {
           try {
             final author = await _userRepository.getUser(post.userId!);
-            if (author != null) {
-              _authors[post.userId!] = author;
+            if (author != null && mounted) {
+              setState(() {
+                _authors[post.userId!] = author;
+              });
             }
           } catch (e) {
             print('Ошибка загрузки автора: $e');
@@ -58,21 +64,23 @@ class _FeedScreenState extends State<FeedScreen> {
         if (post.companyId != null) {
           try {
             final company = await _companyRepository.getCompany(post.companyId!);
-            if (company != null) {
-              _companies[post.companyId!] = company;
+            if (company != null && mounted) {
+              setState(() {
+                _companies[post.companyId!] = company;
+              });
             }
           } catch (e) {
             print('Ошибка загрузки компании: $e');
           }
         }
       }
-      
-      setState(() {});
     } catch (e) {
       print('Ошибка загрузки постов: $e');
-      setState(() {
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _isLoading = false;
+        });
+      }
     }
   }
 
@@ -88,19 +96,23 @@ class _FeedScreenState extends State<FeedScreen> {
         await _postRepository.likePost(post.id, currentUserId);
       }
       
-      setState(() {
-        _likedPosts[post.id] = !isLiked;
-        _posts[index] = post.copyWith(
-          likesCount: post.likesCount + (isLiked ? -1 : 1),
-        );
-      });
+      if (mounted) {
+        setState(() {
+          _likedPosts[post.id] = !isLiked;
+          _posts[index] = post.copyWith(
+            likesCount: post.likesCount + (isLiked ? -1 : 1),
+          );
+        });
+      }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Ошибка: ${e.toString()}'),
-          backgroundColor: Colors.red,
-        ),
-      );
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Ошибка: ${e.toString()}'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
     }
   }
 

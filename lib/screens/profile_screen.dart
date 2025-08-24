@@ -51,17 +51,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Future<void> _loadProfile() async {
     try {
-      setState(() {
-        _isLoading = true;
-        _error = null;
-      });
+      if (mounted) {
+        setState(() {
+          _isLoading = true;
+          _error = null;
+        });
+      }
 
       final userId = await SessionService.getCurrentUserId();
       if (userId == null) {
-        setState(() {
-          _error = 'Пользователь не авторизован';
-          _isLoading = false;
-        });
+        if (mounted) {
+          setState(() {
+            _error = 'Пользователь не авторизован';
+            _isLoading = false;
+          });
+        }
         return;
       }
 
@@ -79,19 +83,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
       // Загружаем локальный аватар
       final localAvatarPath = await AvatarService.getLocalAvatarPath();
 
-      setState(() {
-        _currentUser = user;
-        _userCard = card;
-        _savedCards = favorites;
-        _favoriteCompanies = favCompanies;
-        _localAvatarPath = localAvatarPath;
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _currentUser = user;
+          _userCard = card;
+          _savedCards = favorites;
+          _favoriteCompanies = favCompanies;
+          _localAvatarPath = localAvatarPath;
+          _isLoading = false;
+        });
+      }
     } catch (e) {
-      setState(() {
-        _error = 'Ошибка загрузки профиля: $e';
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _error = 'Ошибка загрузки профиля: $e';
+          _isLoading = false;
+        });
+      }
     }
   }
 
@@ -106,7 +114,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
 
-    if (result != null && result is Map<String, dynamic>) {
+    if (result != null && result is Map<String, dynamic> && mounted) {
       setState(() {
         _userCard = result['businessCard'] ?? _userCard;
         if (result['user'] != null) {
@@ -139,9 +147,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
         );
         return;
       }
-      setState(() {
-        _userCard = created;
-      });
+      if (mounted) {
+        setState(() {
+          _userCard = created;
+        });
+      }
     }
 
     if (!mounted) return;

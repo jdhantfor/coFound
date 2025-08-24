@@ -43,10 +43,12 @@ class _CompaniesScreenState extends State<CompaniesScreen> {
 
   Future<void> _loadCompanies() async {
     try {
-      setState(() {
-        _isLoading = true;
-        _error = null;
-      });
+      if (mounted) {
+        setState(() {
+          _isLoading = true;
+          _error = null;
+        });
+      }
 
       final companies = await CompanyRepository().getCompanies();
       
@@ -57,33 +59,41 @@ class _CompaniesScreenState extends State<CompaniesScreen> {
         favorites = await CompanyService().getFavoriteCompanies(userId);
       }
       
-      setState(() {
-        _companies = companies;
-        _filteredCompanies = companies;
-        _favoriteCompanies = favorites;
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _companies = companies;
+          _filteredCompanies = companies;
+          _favoriteCompanies = favorites;
+          _isLoading = false;
+        });
+      }
     } catch (e) {
-      setState(() {
-        _error = 'Ошибка загрузки компаний: $e';
-        _isLoading = false;
-      });
+      if (mounted) {
+        setState(() {
+          _error = 'Ошибка загрузки компаний: $e';
+          _isLoading = false;
+        });
+      }
     }
   }
 
   Future<void> _applyFilters(Map<String, dynamic>? filters) async {
     if (filters == null) {
       // Сброс фильтров
-      setState(() {
-        _filteredCompanies = _companies;
-        _currentFilters = null;
-      });
+      if (mounted) {
+        setState(() {
+          _filteredCompanies = _companies;
+          _currentFilters = null;
+        });
+      }
       return;
     }
 
-    setState(() {
-      _currentFilters = filters;
-    });
+    if (mounted) {
+      setState(() {
+        _currentFilters = filters;
+      });
+    }
 
     try {
       List<Company> filtered = _companies;
@@ -132,13 +142,17 @@ class _CompaniesScreenState extends State<CompaniesScreen> {
         }).toList();
       }
 
-      setState(() {
-        _filteredCompanies = filtered;
-      });
+      if (mounted) {
+        setState(() {
+          _filteredCompanies = filtered;
+        });
+      }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Ошибка применения фильтров: $e')),
       );
+      }
     }
   }
 
