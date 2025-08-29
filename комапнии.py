@@ -4,7 +4,7 @@ companies = [
         "desc": "Крупнейший банк и экосистема сервисов, интерес к B2B-решениям и совместным продуктам.",
         "industry": "Финтех / Банк",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/sber.ru?size=256",
+        "logo": "assets/logo/sber - logo.png",
         "email": "info@sberbank.ru",
     },
     {
@@ -12,7 +12,7 @@ companies = [
         "desc": "Универсальный банк, масштабные корпоративные программы и закупки.",
         "industry": "Финтех / Банк",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/vtb.ru?size=256",
+        "logo": "assets/logo/vtb.ru.png",
         "email": "info@vtb.ru",
     },
     {
@@ -20,7 +20,7 @@ companies = [
         "desc": "Частный банк с сильной цифровой платформой и SMB-фокусом.",
         "industry": "Финтех / Банк",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/alfabank.ru?size=256",
+        "logo": "assets/logo/alfabank.ru.png",
         "email": "info@alfabank.ru",
     },
     {
@@ -28,7 +28,7 @@ companies = [
         "desc": "Онлайн-банк и экосистема, открытые API, эксперименты с ИИ.",
         "industry": "Финтех / Банк",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/tinkoff.ru?size=256",
+        "logo": "assets/logo/tinkoff.ru.png",
         "email": "partners@tinkoff.ru",
     },
 ]
@@ -38,7 +38,7 @@ companies += [
         "desc": "Топ-3 нефтяная компания, цифровизация добычи и логистики.",
         "industry": "Нефтегаз / Энергетика",
         "location": "Санкт-Петербург",
-        "logo": "https://logo.clearbit.com/gazprom-neft.ru?size=256",
+        "logo": "assets/logo/gazprom-neft.ru.png",
         "email": "info@gazprom-neft.ru",
     },
     {
@@ -46,7 +46,7 @@ companies += [
         "desc": "Крупнейшая нефтяная компания, масштабные закупки и требования к безопасности.",
         "industry": "Нефтегаз",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/rosneft.ru?size=256",
+        "logo": "assets/logo/rosneft.ru.png",
         "email": "info@rosneft.ru",
     },
     {
@@ -54,7 +54,7 @@ companies += [
         "desc": "Вертикально интегрированная нефтяная компания с международными практиками.",
         "industry": "Нефтегаз",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/lukoil.ru?size=256",
+        "logo": "assets/logo/lukoil.ru.png",
         "email": "info@lukoil.com",
     },
     {
@@ -62,7 +62,7 @@ companies += [
         "desc": "Крупнейшая нефтехимическая компания, открыта к кооперации с тех-стартапами.",
         "industry": "Нефтехимия",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/sibur.ru?size=256",
+        "logo": "assets/logo/sibur.ru.png",
         "email": "info@sibur.ru",
     },
     {
@@ -70,7 +70,7 @@ companies += [
         "desc": "Экосистема поиска, карт, доставки и ИИ-сервисов.",
         "industry": "ИТ / Интернет-сервисы",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/yandex.ru?size=256",
+        "logo": "assets/logo/yandex.ru.png",
         "email": "partners@yandex.ru",
     },
     {
@@ -78,7 +78,7 @@ companies += [
         "desc": "Социальные сети, видео, облачные и образовательные платформы.",
         "industry": "ИТ / Соцсети",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/vk.com?size=256",
+        "logo": "assets/logo/vk.com.png",
         "email": "b2b@vk.company",
     },
     {
@@ -86,7 +86,7 @@ companies += [
         "desc": "Разработчик платформы учёта и ERP, сильная экосистема франчайзи.",
         "industry": "Софт для бизнеса",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/1c.ru?size=256",
+        "logo": "assets/logo/1c.ru.png",
         "email": "partner@1c.ru",
     },
     {
@@ -94,7 +94,7 @@ companies += [
         "desc": "Вендор ИБ с фокусом на B2B и критическую инфраструктуру.",
         "industry": "Кибербезопасность",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/kaspersky.ru?size=256",
+        "logo": "assets/logo/kaspersky.ru.png",
         "email": "partners@kaspersky.com",
     },
 ]
@@ -104,7 +104,7 @@ companies += [
         "desc": "Крупнейший провайдер связи и ИТ-услуг для бизнеса и государства.",
         "industry": "Телеком / ИТ-инфраструктура",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/rt.ru?size=256",
+        "logo": "assets/logo/rt.ru.png",
         "email": "partner@rt.ru",
     },
     {
@@ -112,7 +112,7 @@ companies += [
         "desc": "Оператор связи и цифровая экосистема, корпоративные решения.",
         "industry": "Телеком / ИТ",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/mts.ru?size=256",
+        "logo": "assets/logo/mts.ru.png",
         "email": "b2b@mts.ru",
     },
     {
@@ -120,7 +120,7 @@ companies += [
         "desc": "Оператор федерального уровня с развитой B2B-линейкой.",
         "industry": "Телеком",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/megafon.ru?size=256",
+        "logo": "assets/logo/megafon.ru.png",
         "email": "partners@megafon.ru",
     },
     {
@@ -128,7 +128,7 @@ companies += [
         "desc": "Оператор связи, развивает платформенные сервисы для бизнеса.",
         "industry": "Телеком / Цифровые сервисы",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/beeline.ru?size=256",
+        "logo": "assets/logo/beeline.ru.png",
         "email": "b2b@beeline.ru",
     },
     {
@@ -136,7 +136,7 @@ companies += [
         "desc": "Маркетплейс с собственной логистикой и финтех-сервисами.",
         "industry": "E-commerce / Маркетплейс",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/ozon.ru?size=256",
+        "logo": "assets/logo/ozon.ru.png",
         "email": "partners@ozon.ru",
     },
     {
@@ -144,7 +144,7 @@ companies += [
         "desc": "Массовый маркетплейс с широкой аудиторией.",
         "industry": "E-commerce / Маркетплейс",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/wildberries.ru?size=256",
+        "logo": "assets/logo/wildberries.ru.png",
         "email": "partners@wildberries.ru",
     },
     {
@@ -152,7 +152,7 @@ companies += [
         "desc": "Платформа для продавцов с экосистемой сервисов.",
         "industry": "E-commerce",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/market.yandex.ru?size=256",
+        "logo": "assets/logo/market.yandex.ru.png",
         "email": "partner@market.yandex.ru",
     },
     {
@@ -160,7 +160,7 @@ companies += [
         "desc": "Лидер объявлений, сильный маркетинг и инструменты для бизнеса.",
         "industry": "Классифайды / Маркетплейс",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/avito.ru?size=256",
+        "logo": "assets/logo/avito.ru.png",
         "email": "partners@avito.ru",
     },
 ]
@@ -178,7 +178,7 @@ companies += [
         "desc": "Платформа подбора персонала и HR-аналитики.",
         "industry": "HR-тех",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/hh.ru?size=256",
+        "logo": "assets/logo/hh.ru.png",
         "email": "partner@hh.ru",
     },
     {
@@ -186,7 +186,7 @@ companies += [
         "desc": "Сервис доставки с широкой сетью партнёров.",
         "industry": "Фудтех / Доставка",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/eda.yandex.ru?size=256",
+        "logo": "assets/logo/eda.yandex.ru.png",
         "email": "partner@eda.yandex.ru",
     },
     {
@@ -194,7 +194,7 @@ companies += [
         "desc": "Даркстор-сеть, активные маркетинговые эксперименты.",
         "industry": "Быстрая доставка / E-grocery",
         "location": "Санкт-Петербург",
-        "logo": "https://logo.clearbit.com/samokat.tech?size=256",
+        "logo": "assets/logo/samolet.ru.png",
         "email": "partners@samokat.tech",
     },
     {
@@ -202,7 +202,7 @@ companies += [
         "desc": "Частный оператор экспресс-доставки.",
         "industry": "Логистика",
         "location": "Новосибирск",
-        "logo": "https://logo.clearbit.com/cdek.ru?size=256",
+        "logo": "assets/logo/cdek.ru.png",
         "email": "partners@cdek.ru",
     },
     {
@@ -210,7 +210,7 @@ companies += [
         "desc": "Национальный почтовый оператор с широкой сетью.",
         "industry": "Логистика / Публичные услуги",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/pochta.ru?size=256",
+        "logo": "assets/logo/pochta.ru.png",
         "email": "b2b@russianpost.ru",
     },
     {
@@ -218,7 +218,7 @@ companies += [
         "desc": "Независимый провайдер ЦОД и облаков.",
         "industry": "Облако / Дата-центры",
         "location": "Санкт-Петербург",
-        "logo": "https://logo.clearbit.com/selectel.ru?size=256",
+        "logo": "assets/logo/selectel.ru.png",
         "email": "sales@selectel.ru",
     },
     {
@@ -226,7 +226,7 @@ companies += [
         "desc": "Сервисы для бизнеса и государства.",
         "industry": "SaaS / Учёт и отчётность",
         "location": "Екатеринбург",
-        "logo": "https://logo.clearbit.com/kontur.ru?size=256",
+        "logo": "assets/logo/kontur.ru.png",
         "email": "partner@skbkontur.ru",
     },
 ]
@@ -236,7 +236,7 @@ companies += [
         "desc": "Карты и справочник компаний с B2B-кейсами.",
         "industry": "Картография / Навигация",
         "location": "Новосибирск",
-        "logo": "https://logo.clearbit.com/2gis.ru?size=256",
+        "logo": "assets/logo/2gis.ru.png",
         "email": "partners@2gis.ru",
     },
     {
@@ -244,7 +244,7 @@ companies += [
         "desc": "Сеть лабораторий, активный маркетинг и франчайзинг.",
         "industry": "Меддиагностика / Лаборатории",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/invitro.ru?size=256",
+        "logo": "assets/logo/invitro.ru.png",
         "email": "b2b@invitrorus.ru",
     },
     {
@@ -252,7 +252,7 @@ companies += [
         "desc": "Университет мирового уровня, интерес к индустриальным кейсам.",
         "industry": "Вуз / Исследования",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/msu.ru?size=256",
+        "logo": "assets/logo/msu.ru.png",
         "email": "partners@msu.ru",
     },
     {
@@ -260,7 +260,7 @@ companies += [
         "desc": "Сильная школа ИИ, физики, биоинформатики.",
         "industry": "Вуз / Инжиниринг",
         "location": "Долгопрудный",
-        "logo": "https://logo.clearbit.com/mipt.ru?size=256",
+        "logo": "assets/logo/mipt.ru.png",
         "email": "industry@mipt.ru",
     },
     {
@@ -268,7 +268,7 @@ companies += [
         "desc": "Топ-вуз по ИТ и AI-проектам.",
         "industry": "Вуз / ИТ и фотоника",
         "location": "Санкт-Петербург",
-        "logo": "https://logo.clearbit.com/itmo.ru?size=256",
+        "logo": "assets/logo/itmo.ru.png",
         "email": "partnership@itmo.ru",
     },
     {
@@ -276,7 +276,7 @@ companies += [
         "desc": "Исследовательский университет с сильным бизнес-треком.",
         "industry": "Вуз / Экономика и ИТ",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/hse.ru?size=256",
+        "logo": "assets/logo/hse.ru.png",
         "email": "partners@hse.ru",
     },
     {
@@ -284,7 +284,7 @@ companies += [
         "desc": "Фокус на прикладных исследованиях и коммерциализации.",
         "industry": "Вуз / НИИ",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/skoltech.ru?size=256",
+        "logo": "assets/logo/skoltech.ru.png",
         "email": "partnerships@skoltech.ru",
     },
     {
@@ -292,7 +292,7 @@ companies += [
         "desc": "Технологические решения для прома и энергетики.",
         "industry": "Вуз / Материаловедение",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/misis.ru?size=256",
+        "logo": "assets/logo/misis.ru.png",
         "email": "industry@misis.ru",
     },
 ]
@@ -302,7 +302,7 @@ companies += [
         "desc": "Комплекс уникальных установок, проекты Big Science.",
         "industry": "НИИ / Ядерные и междисциплинарные исследования",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/nrcki.ru?size=256",
+        "logo": "assets/logo/nrcki.ru.png",
         "email": "partner@nrcki.ru",
     },
     {
@@ -310,7 +310,7 @@ companies += [
         "desc": "Институт системного программирования, школа компиляторов и ИИ.",
         "industry": "НИИ / Программная инженерия",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/ispras.ru?size=256",
+        "logo": "assets/logo/ispras.ru.png",
         "email": "cooperation@ispras.ru",
     },
     {
@@ -318,7 +318,7 @@ companies += [
         "desc": "Аграрные исследования, опытные поля, цифровое земледелие.",
         "industry": "Аграрный вуз / НИОКР",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/timacad.ru?size=256",
+        "logo": "assets/logo/timacad.ru.png",
         "email": "partnership@timacad.ru",
     },
     {
@@ -326,7 +326,7 @@ companies += [
         "desc": "Мировая коллекция генетических ресурсов, проекты в агротехе.",
         "industry": "НИИ / Генетические ресурсы растений",
         "location": "Санкт-Петербург",
-        "logo": "https://logo.clearbit.com/vir.nw.ru?size=256",
+        "logo": "assets/logo/nrcki.ru.png",
         "email": "partner@vir.nw.ru",
     },
     {
@@ -334,7 +334,7 @@ companies += [
         "desc": "Госкорпорация полного ядерного цикла, крупные программы импортозамещения.",
         "industry": "Атомная энергетика / Машиностроение",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/rosatom.ru?size=256",
+        "logo": "assets/logo/rosatom.ru.png",
         "email": "info@rosatom.ru",
     },
     {
@@ -342,7 +342,7 @@ companies += [
         "desc": "Госкорпорация с множеством отраслевых холдингов, фокус на высоких технологиях.",
         "industry": "Промышленность / Холдинг",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/rostec.ru?size=256",
+        "logo": "assets/logo/rostec.ru.png",
         "email": "info@rostec.ru",
     },
     {
@@ -350,7 +350,7 @@ companies += [
         "desc": "Национальный железнодорожный оператор с развитой ИТ-инфраструктурой.",
         "industry": "Транспорт / Логистика",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/rzd.ru?size=256",
+        "logo": "assets/logo/rzd.ru.png",
         "email": "info@rzd.ru",
     },
     {
@@ -358,7 +358,7 @@ companies += [
         "desc": "Крупнейшая авиакомпания страны, сильный бренд и маркетинг.",
         "industry": "Авиация",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/aeroflot.ru?size=256",
+        "logo": "assets/logo/aeroflot.ru.png",
         "email": "public.relations@aeroflot.ru",
     },
 ]
@@ -368,7 +368,7 @@ companies += [
         "desc": "Крупный частный авиаперевозчик, фокус на цифровых продуктах.",
         "industry": "Авиация",
         "location": "Москва / Новосибирск",
-        "logo": "https://logo.clearbit.com/s7.ru?size=256",
+        "logo": "assets/logo/s7.ru.png",
         "email": "info@s7.ru",
     },
     {
@@ -376,7 +376,7 @@ companies += [
         "desc": "Универсальный банк, активные программы для бизнеса.",
         "industry": "Банк / Финтех",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/gazprombank.ru?size=256",
+        "logo": "assets/logo/gazprombank.ru.png",
         "email": "info@gazprombank.ru",
     },
     {
@@ -384,7 +384,7 @@ companies += [
         "desc": "Банк с экосистемой для агросектора и МСП.",
         "industry": "Банк / Финтех",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/rshb.ru?size=256",
+        "logo": "assets/logo/rshb.ru.png",
         "email": "info@rshb.ru",
     },
     {
@@ -392,7 +392,7 @@ companies += [
         "desc": "Один из лидеров страхового рынка, сильный бренд.",
         "industry": "Страхование",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/ingos.ru?size=256",
+        "logo": "assets/logo/ingos.ru.png",
         "email": "partners@ingos.ru",
     },
     {
@@ -400,7 +400,7 @@ companies += [
         "desc": "Крупная универсальная страховая компания.",
         "industry": "Страхование",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/reso.ru?size=256",
+        "logo": "assets/logo/reso.ru.png",
         "email": "partners@reso.ru",
     },
     {
@@ -408,7 +408,7 @@ companies += [
         "desc": "Частный страховщик с развитой филиальной сетью.",
         "industry": "Страхование",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/alfastrah.ru?size=256",
+        "logo": "assets/logo/alfastrah.ru.png",
         "email": "partner@alfastrah.ru",
     },
     {
@@ -416,7 +416,7 @@ companies += [
         "desc": "Группа «Пятёрочка», «Перекрёсток», цифровые сервисы и маркетинг.",
         "industry": "Ритейл / FMCG",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/x5.ru?size=256",
+        "logo": "assets/logo/x5.ru.png",
         "email": "partners@x5.ru",
     },
     {
@@ -424,7 +424,7 @@ companies += [
         "desc": "Один из крупнейших ритейлеров страны.",
         "industry": "Ритейл / FMCG",
         "location": "Краснодар / Москва",
-        "logo": "https://logo.clearbit.com/magnit.ru?size=256",
+        "logo": "assets/logo/magnit.ru.png",
         "email": "partners@magnit.ru",
     },
 ]
@@ -434,7 +434,7 @@ companies += [
         "desc": "Сеть магазинов здорового питания с сильной CRM и контент-маркетингом.",
         "industry": "Ритейл / Продукты",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/vkusvill.ru?size=256",
+        "logo": "assets/logo/vkusvill.ru.png",
         "email": "partners@vkusvill.ru",
     },
     {
@@ -442,7 +442,7 @@ companies += [
         "desc": "Крупнейший ритейлер электроники с омниканалом.",
         "industry": "Ритейл / Электроника",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/mvideo.ru?size=256",
+        "logo": "assets/logo/mvideo.ru.png",
         "email": "partners@mvideo.ru",
     },
     {
@@ -450,7 +450,7 @@ companies += [
         "desc": "Федеральная сеть магазинов цифровой техники.",
         "industry": "Ритейл / Электроника",
         "location": "Владивосток",
-        "logo": "https://logo.clearbit.com/dns-shop.ru?size=256",
+        "logo": "assets/logo/dns-shop.ru.png",
         "email": "partner@dns-shop.ru",
     },
     {
@@ -458,7 +458,7 @@ companies += [
         "desc": "Один из лидеров онлайн-ритейла техники.",
         "industry": "Ритейл / Электроника",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/citilink.ru?size=256",
+        "logo": "assets/logo/citilink.ru.png",
         "email": "partners@citilink.ru",
     },
     {
@@ -466,7 +466,7 @@ companies += [
         "desc": "Федеральная сеть гипермаркетов мебели и товаров для дома.",
         "industry": "Ритейл / Мебель",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/hoff.ru?size=256",
+        "logo": "assets/logo/hoff.ru.png",
         "email": "partners@hoff.ru",
     },
     {
@@ -474,7 +474,7 @@ companies += [
         "desc": "Сеть гипермаркетов и дискаунтеров.",
         "industry": "Ритейл / FMCG",
         "location": "Санкт-Петербург",
-        "logo": "https://logo.clearbit.com/okmarket.ru?size=256",
+        "logo": "assets/logo/okmarket.ru.png",
         "email": "partners@okmarket.ru",
     },
     {
@@ -482,7 +482,7 @@ companies += [
         "desc": "Федеральная сеть гипермаркетов и супермаркетов.",
         "industry": "Ритейл / FMCG",
         "location": "Санкт-Петербург",
-        "logo": "https://logo.clearbit.com/lenta.com?size=256",
+        "logo": "assets/logo/lenta.com.png",
         "email": "partners@lenta.com",
     },
     {
@@ -490,7 +490,7 @@ companies += [
         "desc": "Сеть строительных магазинов и онлайн-платформа.",
         "industry": "DIY / Строительные материалы",
         "location": "Санкт-Петербург",
-        "logo": "https://logo.clearbit.com/petrovich.ru?size=256",
+        "logo": "assets/logo/petrovich.ru.png",
         "email": "b2b@petrovich.ru",
     },
 ]
@@ -500,7 +500,7 @@ companies += [
         "desc": "Крупнейший девелопер жилой недвижимости.",
         "industry": "Девелопмент / Строительство",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/pik.ru?size=256",
+        "logo": "assets/logo/pik.ru.png",
         "email": "partners@pik.ru",
     },
     {
@@ -508,7 +508,7 @@ companies += [
         "desc": "Быстрорастущий девелопер с акцентом на ИТ-платформы.",
         "industry": "Девелопмент / Стройтех",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/samolet.ru?size=256",
+        "logo": "assets/logo/samolet.ru.png",
         "email": "partners@samolet.ru",
     },
     {
@@ -516,7 +516,7 @@ companies += [
         "desc": "Девелопер и производитель стройматериалов.",
         "industry": "Девелопмент / Строиматериалы",
         "location": "Санкт-Петербург",
-        "logo": "https://logo.clearbit.com/lsrgroup.ru?size=256",
+        "logo": "assets/logo/lsrgroup.ru.png",
         "email": "info@lsrgroup.ru",
     },
     {
@@ -524,7 +524,7 @@ companies += [
         "desc": "Российский вендор ИБ с продуктовой линейкой для бизнеса.",
         "industry": "Кибербезопасность",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/ptsecurity.com?size=256",
+        "logo": "assets/logo/ptsecurity.com.png",
         "email": "partners@ptsecurity.com",
     },
     {
@@ -532,7 +532,7 @@ companies += [
         "desc": "Разработчик сервис-десков, контакт-центров и аналитики.",
         "industry": "Корпоративный софт / SaaS",
         "location": "Екатеринбург",
-        "logo": "https://logo.clearbit.com/naumen.ru?size=256",
+        "logo": "assets/logo/naumen.ru.png",
         "email": "partner@naumen.ru",
     },
     {
@@ -540,7 +540,7 @@ companies += [
         "desc": "Крупный системный интегратор и облачный провайдер.",
         "industry": "ИТ-интеграция / Облака",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/croc.ru?size=256",
+        "logo": "assets/logo/croc.ru.png",
         "email": "partners@croc.ru",
     },
     {
@@ -548,7 +548,7 @@ companies += [
         "desc": "Группа компаний с широким портфелем корпоративных решений.",
         "industry": "ИТ-интеграция / Связь",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/t1.ru?size=256",
+        "logo": "assets/logo/t1.ru.png",
         "email": "partners@t1.ru",
     },
     {
@@ -556,7 +556,7 @@ companies += [
         "desc": "Российский производитель серверов и СХД, ИТ-инфраструктура.",
         "industry": "Оборудование / Дата-центры",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/yadro.com?size=256",
+        "logo": "assets/logo/yadro.com.png",
         "email": "info@yadro.com",
     },
 ]
@@ -566,7 +566,7 @@ companies += [
         "desc": "Сервис доставки продуктов из сетей, развитая логистика.",
         "industry": "E-grocery / Доставка",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/sbermarket.ru?size=256",
+        "logo": "assets/logo/sbermarket.ru.png",
         "email": "partners@sbermarket.ru",
     },
     {
@@ -574,7 +574,7 @@ companies += [
         "desc": "Федеральная сеть магазинов фиксированных цен.",
         "industry": "Ритейл / Дискаунтер",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/fix-price.ru?size=256",
+        "logo": "assets/logo/fix-price.ru.png",
         "email": "partners@fix-price.ru",
     },
     {
@@ -582,7 +582,7 @@ companies += [
         "desc": "Универсальный банк с активным маркетингом и программами для МСБ.",
         "industry": "Финтех / Банк",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/sovcombank.ru?size=256",
+        "logo": "assets/logo/sovcombank.ru.png",
         "email": "partners@sovcombank.ru",
     },
     {
@@ -590,7 +590,7 @@ companies += [
         "desc": "Онлайн-банк для предпринимателей с развитой экосистемой.",
         "industry": "Финтех / Банк для бизнеса",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/tochka.com?size=256",
+        "logo": "assets/logo/tinkoff.ru.png",
         "email": "hello@tochka.com",
     },
     {
@@ -598,7 +598,7 @@ companies += [
         "desc": "Платёжный сервис для бизнеса и частных лиц.",
         "industry": "Финтех / Платежи",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/yoomoney.ru?size=256",
+        "logo": "assets/logo/yoomoney.ru.png",
         "email": "b2b@yoomoney.ru",
     },
     {
@@ -606,7 +606,7 @@ companies += [
         "desc": "Провайдер онлайн-платежей для e-commerce.",
         "industry": "Финтех / Эквайринг",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/yookassa.ru?size=256",
+        "logo": "assets/logo/yookassa.ru.png",
         "email": "merchants@yookassa.ru",
     },
     {
@@ -614,7 +614,7 @@ companies += [
         "desc": "Платёжная платформа и B2B-сервисы.",
         "industry": "Финтех / Платежи",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/qiwi.com?size=256",
+        "logo": "assets/logo/qiwi.com.png",
         "email": "partners@qiwi.com",
     },
     {
@@ -622,7 +622,7 @@ companies += [
         "desc": "Один из крупнейших страховщиков с широкой сетью.",
         "industry": "Страхование",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/vsk.ru?size=256",
+        "logo": "assets/logo/vsk.ru.png",
         "email": "partner@vsk.ru",
     },
 ]
@@ -632,7 +632,7 @@ companies += [
         "desc": "Универсальный страховщик для крупного и среднего бизнеса.",
         "industry": "Страхование",
         "location": "Санкт-Петербург / Москва",
-        "logo": "https://logo.clearbit.com/sogaz.ru?size=256",
+        "logo": "assets/logo/sogaz.ru.png",
         "email": "b2b@sogaz.ru",
     },
     {
@@ -640,7 +640,7 @@ companies += [
         "desc": "Крупный каршеринг с федеральным покрытием.",
         "industry": "Каршеринг / Mobility",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/delimobil.ru?size=256",
+        "logo": "assets/logo/delimobil.ru.png",
         "email": "partners@delimobil.ru",
     },
     {
@@ -648,7 +648,7 @@ companies += [
         "desc": "Сервис поминутной аренды авто.",
         "industry": "Каршеринг",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/belkacar.ru?size=256",
+        "logo": "assets/logo/belkacar.ru.png",
         "email": "partners@belkacar.ru",
     },
     {
@@ -656,7 +656,7 @@ companies += [
         "desc": "Лидер кикшеринга с приложением и собственной телематикой.",
         "industry": "Шеринг e-скутеров",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/whoosh.bike?size=256",
+        "logo": "assets/logo/whoosh.bike.png",
         "email": "partners@whoosh.bike",
     },
     {
@@ -664,7 +664,7 @@ companies += [
         "desc": "Каршеринг и подписка на авто в экосистеме Яндекса.",
         "industry": "Каршеринг",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/drive.yandex.ru?size=256",
+        "logo": "assets/logo/drive.yandex.ru.png",
         "email": "partner@drive.yandex.ru",
     },
     {
@@ -672,7 +672,7 @@ companies += [
         "desc": "Платформа заказов еды, широкая реклама и акции.",
         "industry": "Доставка еды",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/delivery-club.ru?size=256",
+        "logo": "assets/logo/delivery-club.ru.png",
         "email": "partners@delivery-club.ru",
     },
     {
@@ -680,7 +680,7 @@ companies += [
         "desc": "Онлайн-супермаркет с собственной логистикой.",
         "industry": "E-grocery",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/utkonos.ru?size=256",
+        "logo": "assets/logo/utkonos.ru.png",
         "email": "b2b@utkonos.ru",
     },
     {
@@ -688,7 +688,7 @@ companies += [
         "desc": "Сеть пиццерий с сильным digital-маркетингом.",
         "industry": "Фудтех / Франчайзинг",
         "location": "Сыктывкар / Москва",
-        "logo": "https://logo.clearbit.com/dodopizza.ru?size=256",
+        "logo": "assets/logo/dodopizza.ru.png",
         "email": "partners@dodopizza.com",
     },
 ]
@@ -698,7 +698,7 @@ companies += [
         "desc": "Крупнейший детский ритейлер с омниканалом.",
         "industry": "Ритейл / Детские товары",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/detmir.ru?size=256",
+        "logo": "assets/logo/detmir.ru.png",
         "email": "partners@detmir.ru",
     },
     {
@@ -714,7 +714,7 @@ companies += [
         "desc": "Российский бренд повседневной одежды.",
         "industry": "Мода / Ритейл",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/ostin.com?size=256",
+        "logo": "assets/logo/ostin.com.png",
         "email": "partners@ostin.com",
     },
     {
@@ -722,7 +722,7 @@ companies += [
         "desc": "Крупный fashion-ритейлер с активным SMM.",
         "industry": "Мода / Ритейл",
         "location": "Москва / Ростов-на-Дону",
-        "logo": "https://logo.clearbit.com/gloria-jeans.ru?size=256",
+        "logo": "assets/logo/gloria-jeans.ru.png",
         "email": "partners@gloria-jeans.ru",
     },
     {
@@ -730,7 +730,7 @@ companies += [
         "desc": "Федеральная сеть обувных магазинов и ювелирного направления.",
         "industry": "Мода / Обувь и аксессуары",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/kari.com?size=256",
+        "logo": "assets/logo/kari.com.png",
         "email": "partners@kari.com",
     },
     {
@@ -738,7 +738,7 @@ companies += [
         "desc": "Быстрорастущий маркетплейс с региональной сетью ПВЗ.",
         "industry": "E-commerce / Маркетплейс",
         "location": "Казань",
-        "logo": "https://logo.clearbit.com/kazanexpress.ru?size=256",
+        "logo": "assets/logo/kazanexpress.ru.png",
         "email": "partners@kazanexpress.ru",
     },
     {
@@ -746,7 +746,7 @@ companies += [
         "desc": "Крупный онлайн-ритейлер товаров для животных.",
         "industry": "E-commerce / Зоотовары",
         "location": "Москва / Санкт-Петербург",
-        "logo": "https://logo.clearbit.com/petshop.ru?size=256",
+        "logo": "assets/logo/petshop.ru.png",
         "email": "b2b@petshop.ru",
     },
     {
@@ -754,7 +754,7 @@ companies += [
         "desc": "Крупная онлайн-аптека с сетью пунктов выдачи.",
         "industry": "E-pharma",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/apteka.ru?size=256",
+        "logo": "assets/logo/apteka.ru.png",
         "email": "b2b@apteka.ru",
     },
 ]
@@ -764,7 +764,7 @@ companies += [
         "desc": "Школа онлайн-курсов в ИТ/дизайне/маркетинге.",
         "industry": "EdTech",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/skillbox.ru?size=256",
+        "logo": "assets/logo/skillbox.ru.png",
         "email": "b2b@skillbox.ru",
     },
     {
@@ -772,7 +772,7 @@ companies += [
         "desc": "Онлайн-университет цифровых профессий.",
         "industry": "EdTech",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/netology.ru?size=256",
+        "logo": "assets/logo/netology.ru.png",
         "email": "b2b@netology.ru",
     },
     {
@@ -780,7 +780,7 @@ companies += [
         "desc": "Образовательная платформа VK по ИТ-направлениям.",
         "industry": "EdTech",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/gb.ru?size=256",
+        "logo": "assets/logo/gb.ru.png",
         "email": "b2b@gb.ru",
     },
     {
@@ -788,7 +788,7 @@ companies += [
         "desc": "Крупнейшая онлайн-школа английского и смежных дисциплин.",
         "industry": "EdTech / Языки и математика",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/skyeng.ru?size=256",
+        "logo": "assets/logo/skyeng.ru.png",
         "email": "b2b@skyeng.ru",
     },
     {
@@ -796,7 +796,7 @@ companies += [
         "desc": "Образовательная платформа Яндекса для подготовки ИТ-специалистов.",
         "industry": "EdTech / IT-обучение",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/practicum.yandex.ru?size=256",
+        "logo": "assets/logo/yandex.ru.png",
         "email": "partners@practicum.yandex.ru",
     },
     {
@@ -804,7 +804,7 @@ companies += [
         "desc": "Стриминг-платформа с оригинальными проектами.",
         "industry": "Онлайн-кинотеатр",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/ivi.ru?size=256",
+        "logo": "assets/logo/ivi.ru.png",
         "email": "partners@ivi.ru",
     },
     {
@@ -812,7 +812,7 @@ companies += [
         "desc": "Стриминг от экосистемы Сбера.",
         "industry": "Онлайн-кинотеатр",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/okko.tv?size=256",
+        "logo": "assets/logo/okko.tv.png",
         "email": "partners@okko.tv",
     },
     {
@@ -820,7 +820,7 @@ companies += [
         "desc": "Видеосервис МТС с оригинальными сериалами.",
         "industry": "Онлайн-кинотеатр",
         "location": "Москва",
-        "logo": "https://logo.clearbit.com/kion.ru?size=256",
+        "logo": "assets/logo/kion.ru.png",
         "email": "partners@kion.ru",
     },
 ]

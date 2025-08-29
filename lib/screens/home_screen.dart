@@ -452,10 +452,27 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     color: AppStyles.secondaryColor.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Icon(
-                    Icons.business,
-                    color: AppStyles.secondaryColor,
-                    size: 30,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: company.logoUrl != null && company.logoUrl!.startsWith('assets/')
+                        ? Image.asset(
+                            company.logoUrl!,
+                            width: 60,
+                            height: 60,
+                            fit: BoxFit.cover,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Icon(
+                                Icons.business,
+                                color: AppStyles.secondaryColor,
+                                size: 30,
+                              );
+                            },
+                          )
+                        : Icon(
+                            Icons.business,
+                            color: AppStyles.secondaryColor,
+                            size: 30,
+                          ),
                   ),
                 ),
                 const SizedBox(width: 12),
