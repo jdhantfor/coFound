@@ -25,152 +25,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   int _viewedCount = 0;
   int _favoritesCount = 0;
   bool _isSwiping = false; // Флаг для предотвращения множественных свайпов
+  bool _isLoading = true;
 
   // Фильтры
   Map<String, dynamic>? _appliedFilters;
   final List<String> _favoriteIndustries = [];
 
-  // Тестовые данные
-  final List<BusinessProposal> _allProposals = [
-    BusinessProposal(
-      id: '1',
-      companyName: 'TechStart',
-      title: 'Ищем IT-партнера для разработки',
-      description: 'Стартап в сфере финтех ищет опытного разработчика для создания мобильного приложения.',
-      industry: 'Финтех',
-      location: 'Москва',
-      logoUrl: 'https://via.placeholder.com/80',
-      tags: ['Flutter', 'Firebase', 'Стартап'],
-      employeeCount: 5,
-      contactEmail: 'info@techstart.ru',
-      collaborationType: 'Партнерство',
-      createdAt: DateTime.now(),
-    ),
-    BusinessProposal(
-      id: '2',
-      companyName: 'GreenEco',
-      title: 'Партнерство в экологических проектах',
-      description: 'Компания по переработке отходов ищет партнеров для расширения сети.',
-      industry: 'Экология',
-      location: 'Санкт-Петербург',
-      logoUrl: 'https://via.placeholder.com/80',
-      tags: ['Экология', 'Переработка', 'Франшиза'],
-      employeeCount: 25,
-      contactEmail: 'partners@greeneco.ru',
-      collaborationType: 'Франшиза',
-      createdAt: DateTime.now(),
-    ),
-    BusinessProposal(
-      id: '3',
-      companyName: 'FoodDelivery',
-      title: 'Требуется логистический партнер',
-      description: 'Сервис доставки еды ищет партнера для организации складской логистики.',
-      industry: 'Доставка еды',
-      location: 'Казань',
-      logoUrl: 'https://via.placeholder.com/80',
-      tags: ['Логистика', 'Доставка', 'Склад'],
-      employeeCount: 15,
-      contactEmail: 'logistics@fooddelivery.ru',
-      collaborationType: 'Партнерство',
-      createdAt: DateTime.now(),
-    ),
-    BusinessProposal(
-      id: '4',
-      companyName: 'EduPlatform',
-      title: 'Ищем партнера для онлайн-образования',
-      description: 'Платформа онлайн-курсов ищет партнера для создания контента и маркетинга.',
-      industry: 'Образование',
-      location: 'Екатеринбург',
-      logoUrl: 'https://via.placeholder.com/80',
-      tags: ['EdTech', 'Онлайн-курсы', 'Маркетинг'],
-      employeeCount: 12,
-      contactEmail: 'contact@eduplatform.ru',
-      collaborationType: 'Инвестиции',
-      createdAt: DateTime.now(),
-    ),
-    BusinessProposal(
-      id: '5',
-      companyName: 'HealthTech',
-      title: 'Партнер для медицинского стартапа',
-      description: 'Разработка телемедицинского сервиса, ищем инвесторов и разработчиков.',
-      industry: 'Здравоохранение',
-      location: 'Новосибирск',
-      logoUrl: 'https://via.placeholder.com/80',
-      tags: ['Телемедицина', 'AI', 'Стартап'],
-      employeeCount: 8,
-      contactEmail: 'info@healthtech.ru',
-      collaborationType: 'Инвестиции',
-      createdAt: DateTime.now(),
-    ),
-    BusinessProposal(
-      id: '6',
-      companyName: 'RetailBoost',
-      title: 'Партнер для расширения розничной сети',
-      description: 'Компания розничной торговли ищет партнера для открытия новых магазинов.',
-      industry: 'Розничная торговля',
-      location: 'Ростов-на-Дону',
-      logoUrl: 'https://via.placeholder.com/80',
-      tags: ['Розница', 'Франшиза', 'Продажи'],
-      employeeCount: 30,
-      contactEmail: 'info@retailboost.ru',
-      collaborationType: 'Франшиза',
-      createdAt: DateTime.now(),
-    ),
-    BusinessProposal(
-      id: '7',
-      companyName: 'TravelHub',
-      title: 'Ищем партнера для туристического стартапа',
-      description: 'Платформа для бронирования туров ищет разработчиков и инвесторов.',
-      industry: 'Туризм',
-      location: 'Сочи',
-      logoUrl: 'https://via.placeholder.com/80',
-      tags: ['Туризм', 'Бронирование', 'Стартап'],
-      employeeCount: 10,
-      contactEmail: 'contact@travelhub.ru',
-      collaborationType: 'Партнерство',
-      createdAt: DateTime.now(),
-    ),
-    BusinessProposal(
-      id: '8',
-      companyName: 'Rooby',
-      title: 'Ищем партнера для полетного стартапа',
-      description: 'Платформа для бронирования туров ищет разработчиков и инвесторов.',
-      industry: 'Туризм',
-      location: 'Африка',
-      logoUrl: 'https://via.placeholder.com/80',
-      tags: ['Туризм', 'Бронирование', 'Стартап'],
-      employeeCount: 10,
-      contactEmail: 'contact@travelhub.ru',
-      collaborationType: 'Партнерство',
-      createdAt: DateTime.now(),
-    ),
-    BusinessProposal(
-      id: '9',
-      companyName: 'РГСУ',
-      title: 'Ищем партнера для научного стартапа',
-      description: 'Институт университетского колледжа.',
-      industry: 'Наука',
-      location: 'Москва',
-      logoUrl: 'https://via.placeholder.com/80',
-      tags: ['Наука', 'Иннополис', 'Стартап'],
-      employeeCount: 10,
-      contactEmail: 'contact@nauchpop.ru',
-      collaborationType: 'Партнерство',
-      createdAt: DateTime.now(),
-    ),
-  ];
-
-  List<BusinessProposal> get _proposals {
-    if (_appliedFilters == null) return _allProposals;
-    return _allProposals.where((proposal) {
-      final locationMatch = _appliedFilters!['location'] == 'Все' || proposal.location == _appliedFilters!['location'];
-      final industryMatch = _appliedFilters!['industry'] == 'Все' || proposal.industry == _appliedFilters!['industry'];
-      final typeMatch = _appliedFilters!['collaborationType'] == 'Все' || proposal.collaborationType == _appliedFilters!['collaborationType'];
-      return locationMatch && industryMatch && typeMatch;
-    }).toList();
-  }
-
-  // (зарезервировано под рекомендации)
+  // Реальные компании
+  final List<Company> _companies = [];
+  final CompanyService _companyService = CompanyService();
 
   @override
   void initState() {
@@ -179,15 +42,13 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 300),
       vsync: this,
     );
-
     _slideAnimation = Tween<Offset>(
-      begin: Offset.zero,
-      end: Offset.zero,
+      begin: const Offset(0, 0),
+      end: const Offset(1.5, 0),
     ).animate(CurvedAnimation(
       parent: _animationController,
       curve: Curves.easeInOut,
     ));
-
     _scaleAnimation = Tween<double>(
       begin: 1.0,
       end: 0.8,
@@ -195,6 +56,19 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       parent: _animationController,
       curve: Curves.easeInOut,
     ));
+    
+    _loadCompanies();
+  }
+
+  Future<void> _loadCompanies() async {
+    final userId = await SessionService.getCurrentUserId();
+    if (userId != null) {
+      final companies = await _companyService.getLocalCompanies();
+      setState(() {
+        _companies.addAll(companies);
+        _isLoading = false;
+      });
+    }
   }
 
   @override
@@ -204,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
   void _onSwipeLeft() {
-    if (_currentIndex < _proposals.length - 1 && !_isSwiping) {
+    if (_currentIndex < _companies.length - 1 && !_isSwiping) {
       print('Swiping left, currentIndex: $_currentIndex');
       _isSwiping = true;
       _animateCard(const Offset(-1.5, 0), () {
@@ -215,60 +89,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
   void _onSwipeRight() async {
-    if (_currentIndex < _proposals.length && !_isSwiping) {
+    if (_currentIndex < _companies.length && !_isSwiping) {
       print('Swiping right, currentIndex: $_currentIndex');
       _isSwiping = true;
-      final proposal = _proposals[_currentIndex];
-      // Попытка найти companyId по имени из локального кеша
-      // Обновим список компаний с сервера и попробуем найти по имени
-      await CompanyService().getCompanies();
-      final companies = await CompanyService().getLocalCompanies();
-      Company? matched;
-      for (final c in companies) {
-        if (c.name.toLowerCase() == proposal.companyName.toLowerCase()) {
-          matched = c;
-          break;
-        }
-      }
+      final company = _companies[_currentIndex];
       final userId = await SessionService.getCurrentUserId();
       if (userId != null) {
-        // Если не нашли точного совпадения — поищем по contains
-        if (matched == null) {
-          for (final c in companies) {
-            if (c.name.toLowerCase().contains(proposal.companyName.toLowerCase()) ||
-                proposal.companyName.toLowerCase().contains(c.name.toLowerCase())) {
-              matched = c;
-              break;
-            }
-          }
-        }
-
-        // Если всё ещё нет компании — создадим её на сервере
-        if (matched == null) {
-          try {
-            final created = await CompanyService().createCompany(
-              userId: userId,
-              name: proposal.companyName,
-              description: proposal.description,
-              industry: proposal.industry,
-              location: proposal.location,
-              logoUrl: proposal.logoUrl.isNotEmpty ? proposal.logoUrl : null,
-              employeeCount: proposal.employeeCount,
-              contactEmail: proposal.contactEmail,
-            );
-            if (created != null) {
-              matched = created;
-            }
-          } catch (_) {}
-        }
-
-        if (matched != null) {
-          await CompanyService().addCompanyToFavorites(userId: userId, companyId: matched.id);
-        }
+        await _companyService.addCompanyToFavorites(userId: userId, companyId: company.id);
       }
       setState(() {
         _favoritesCount++;
-        _favoriteIndustries.add(proposal.industry);
+        _favoriteIndustries.add(company.industry);
       });
       _animateCard(const Offset(1.5, 0), () {
         _nextCard();
@@ -300,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   }
 
   void _nextCard() {
-    if (_currentIndex < _proposals.length - 1) {
+    if (_currentIndex < _companies.length - 1) {
       setState(() {
         _currentIndex++;
         _viewedCount++;
@@ -308,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       });
     } else {
       setState(() {
-        _currentIndex = _proposals.length; // перейти в состояние пустого экрана
+        _currentIndex = _companies.length; // перейти в состояние пустого экрана
       });
     }
   }
@@ -340,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     // Исправлено: всегда показываем основной список карточек, не фильтруем по _recommendedProposals
-    final proposalsToShow = _proposals;
+    final companiesToShow = _companies;
 
     return Scaffold(
       backgroundColor: AppStyles.backgroundColor,
@@ -425,7 +256,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ),
                 const SizedBox(height: 8),
                 LinearProgressIndicator(
-                  value: proposalsToShow.isNotEmpty ? (_currentIndex + 1) / proposalsToShow.length : 0,
+                  value: companiesToShow.isNotEmpty ? (_currentIndex + 1) / companiesToShow.length : 0,
                   backgroundColor: AppStyles.textColorLight.withOpacity(0.3),
                   valueColor: AlwaysStoppedAnimation<Color>(AppStyles.primaryColor),
                 ),
@@ -441,16 +272,16 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
               ),
             ),
           Expanded(
-            child: _currentIndex < proposalsToShow.length
+            child: _currentIndex < companiesToShow.length
                 ? Stack(
                     alignment: Alignment.center,
                     children: [
-                      if (_currentIndex + 1 < proposalsToShow.length)
+                      if (_currentIndex + 1 < companiesToShow.length)
                         Positioned(
                           top: 20,
                           child: Transform.scale(
                             scale: 0.95,
-                            child: _buildProposalCard(proposalsToShow[_currentIndex + 1], isBackground: true),
+                            child: _buildCompanyCard(companiesToShow[_currentIndex + 1], isBackground: true),
                           ),
                         ),
                       GestureDetector(
@@ -491,7 +322,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                               offset: _slideAnimation.value * MediaQuery.of(context).size.width,
                               child: Transform.scale(
                                 scale: _scaleAnimation.value,
-                                child: _buildProposalCard(proposalsToShow[_currentIndex]),
+                                child: _buildCompanyCard(companiesToShow[_currentIndex]),
                               ),
                             );
                           },
@@ -530,17 +361,17 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 _buildActionButton(
                   icon: Icons.close,
                   color: AppStyles.actionButtonRed,
-                  onPressed: _currentIndex < proposalsToShow.length ? _onSwipeLeft : null,
+                  onPressed: _currentIndex < companiesToShow.length ? _onSwipeLeft : null,
                 ),
                 _buildActionButton(
                   icon: Icons.info_outline,
                   color: AppStyles.actionButtonBlue,
-                  onPressed: _currentIndex < proposalsToShow.length ? () { _showProposalDetails(proposalsToShow[_currentIndex]); } : null,
+                  onPressed: _currentIndex < companiesToShow.length ? () { _showCompanyDetails(companiesToShow[_currentIndex]); } : null,
                 ),
                 _buildActionButton(
                   icon: Icons.favorite,
                   color: AppStyles.secondaryColor,
-                  onPressed: _currentIndex < proposalsToShow.length ? _onSwipeRight : null,
+                  onPressed: _currentIndex < companiesToShow.length ? _onSwipeRight : null,
                 ),
               ],
             ),
@@ -591,7 +422,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  Widget _buildProposalCard(BusinessProposal proposal, {bool isBackground = false}) {
+  Widget _buildCompanyCard(Company company, {bool isBackground = false}) {
     return Container(
       margin: const EdgeInsets.all(16),
       width: MediaQuery.of(context).size.width - 32,
@@ -633,11 +464,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        proposal.companyName,
+                        company.name,
                         style: Theme.of(context).textTheme.headlineLarge,
                       ),
                       Text(
-                        '${proposal.industry} • ${proposal.location}',
+                        '${company.industry} • ${company.location}',
                         style: Theme.of(context).textTheme.labelSmall,
                       ),
                     ],
@@ -647,29 +478,22 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
             const SizedBox(height: 16),
             Text(
-              proposal.title,
-              style: Theme.of(context).textTheme.displayLarge!.copyWith(fontSize: 18),
-            ),
-            const SizedBox(height: 12),
-            Expanded(
-              child: Text(
-                proposal.description,
-                style: Theme.of(context).textTheme.bodyLarge!.copyWith(height: 1.5, fontSize: 13),
-              ),
+              company.description,
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(height: 1.5, fontSize: 13),
             ),
             Wrap(
               spacing: 8,
               runSpacing: 8,
-              children: proposal.tags.map((tag) => Container(
+              children: [company.industry, company.location].map((tag) => Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: AppStyles.secondaryColor.withOpacity(0.1),
+                  color: AppStyles.primaryColor.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Text(
                   tag,
                   style: TextStyle(
-                    color: AppStyles.secondaryColor,
+                    color: AppStyles.primaryColor,
                     fontSize: 10,
                     fontWeight: FontWeight.w500,
                   ),
@@ -686,7 +510,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 ),
                 const SizedBox(width: 4),
                 Text(
-                  '${proposal.employeeCount} сотрудников',
+                  '${company.employeeCount} сотрудников',
                   style: Theme.of(context).textTheme.labelSmall,
                 ),
               ],
@@ -715,7 +539,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 
-  void _showProposalDetails(BusinessProposal proposal) {
+  void _showCompanyDetails(Company company) {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -752,22 +576,11 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _buildDetailRow('Компания:', proposal.companyName),
-                      _buildDetailRow('Отрасль:', proposal.industry),
-                      _buildDetailRow('Местоположение:', proposal.location),
-                      _buildDetailRow('Сотрудников:', '${proposal.employeeCount}'),
-                      _buildDetailRow('Email:', proposal.contactEmail),
-                      _buildDetailRow('Форма сотрудничества:', proposal.collaborationType),
-                      const SizedBox(height: 16),
-                      Text(
-                        'Описание:',
-                        style: Theme.of(context).textTheme.headlineLarge!.copyWith(fontSize: 14),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        proposal.description,
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(height: 1.5, fontSize: 12),
-                      ),
+                      _buildDetailRow('Название:', company.name),
+                      _buildDetailRow('Отрасль:', company.industry),
+                      _buildDetailRow('Местоположение:', company.location),
+                      _buildDetailRow('Сотрудников:', '${company.employeeCount}'),
+                      _buildDetailRow('Описание:', company.description),
                     ],
                   ),
                 ),
